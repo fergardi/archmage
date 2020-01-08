@@ -30,6 +30,11 @@ speed-measure-plugin*.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+visualstudiocode
+visualstudiocode/*
+nodejs
+nodejs/*
+startVSCode.bat
 
 # misc
 /.sass-cache
