@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
   // global
-  public factions = []
+  public factions: Array<any> = []
 
-  constructor() { }
+  constructor(
+    private firestoreService: FirestoreService
+  ) { }
 
   ngOnInit() {
+    this.firestoreService.getCollection('factions').subscribe((factions: any) => {
+      this.factions = [];
+      factions.forEach((faction: any) => {
+        this.factions.push(faction.payload.doc.data())
+      })
+    })
+    /*
     this.factions = [
       {
         name: 'Sacro',
@@ -44,6 +54,7 @@ export class LandingComponent implements OnInit {
         image: 'mental.png'
       }
     ]
+    */
   }
 
 }

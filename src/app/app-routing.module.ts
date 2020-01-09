@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './landing/landing.component';
+import { LoginComponent } from './components/login/login.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { WikiComponent } from './components/wiki/wiki.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
+  { path: 'wiki', component: WikiComponent },
+  { path: 'wiki/:type', component: WikiComponent },
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ]
